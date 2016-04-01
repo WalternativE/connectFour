@@ -68,6 +68,9 @@ public class GameActivity extends Activity {
 
         imageView.setLayoutParams(layoutParams);
 
+        // explicitly increment game counter
+        game.incrementGameCounter();
+
         return imageView;
     }
 
@@ -87,6 +90,8 @@ public class GameActivity extends Activity {
                 int columnRender = game.computerMove();
                 columns[columnRender].addView(createImageView(game.getCurrentPlayer()), 0);
             }
+
+            game.evaluateGameState();
         }
     }
 }
